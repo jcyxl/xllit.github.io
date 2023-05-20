@@ -4,42 +4,22 @@
 <head><title>等会....</title></head>
 <body>
     <meta http-equiv="Refresh" content="5;url=/core.html">
-    <style>
-        body {
- background-color: #FDC800;
- overflow: hidden;
- text-align: center;
-}
+    <link href="./ld.scss">
+<h1>
+	<span>G</span>
+	<span>o</span>
+	<span>o</span>
+	<span>g</span>
+	<span>l</span>
+	<span>e</span>
+</h1>
 
-body,
-html {
- height: 100%;
- width: 100%;
- margin: 0;
- padding: 0;
-}
-
-#animationWindow {
- width: 100%;
- height: 100%;
-}
-    </style>
-    <script>
-    	var animData = {
-            wrapper: document.querySelector('#animationWindow'),
-            animType: 'svg',
-            loop: true,
-            prerender: true,
-            autoplay: true,
-            path: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/LEGO_loader.json'
-        };
-        var anim = bodymovin.loadAnimation(animData);
-    anim.setSpeed(3.4);
-    
-</script>
-<div id="animationWindow">
+<div class="google-loader">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
 </div>
-    
     
 </body>
 </html>

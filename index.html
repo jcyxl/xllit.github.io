@@ -7,9 +7,9 @@
    <style>
 .navbackground{
 /*半透明背景栏*/
-             width: 1300px;
-            height: 60px;
-            background: rgba(0, 195, 255, 0.203);/* r:red g:green b:blue a:alpha(半透明):0-1,1是不透明，0是全透明 */
+             width: 130px;
+            height: 120px;
+            background: rgba(165, 249, 255, 0.13);/* r:red g:green b:blue a:alpha(半透明):0-1,1是不透明，0是全透明 */
             color: white;
             }
 </style>
@@ -17,11 +17,16 @@
 <body>
  
   <div class="navbackground">		                  
-		               <ul >
-		                          <li>资料设置</li>
-		                          <li >账户信息</li>
-	                        	   <li >信息</li>   
-	                     </ul>               
+		                          <li>你好,朋友</li>
+		                          <li>今日运气</li>
+	                        	  <li><script>
+									function Num()
+									{
+										document.getElementById("field").value=Math.floor(Math.random()*5+5) + Math.ceil(Math.random()*10)/10
+									}
+									</script>
+									<button onclick="Num()">lookme</button> <input type="text" id="field">
+									</li>
 	             </div>
  
 </body>

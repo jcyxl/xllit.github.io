@@ -13,19 +13,21 @@
             color: rgb(0, 150, 95);
             }
 </style>
+
 </head>
 <body>
+	<script>
+		function Num()
+		{
+			document.getElementById("field").value=Math.floor(Math.random()*5+5) + Math.ceil(Math.random()*10)/10
+		}
+		</script>
  
   <div class="navbackground">		                  
 		                          <li>你好,朋友</li>
 		                          <li>今日运气</li>
-	                        	  <li><script>
-									function Num()
-									{
-										document.getElementById("field").value=Math.floor(Math.random()*5+5) + Math.ceil(Math.random()*10)/10
-									}
-									</script>
-									<button onclick="Num()">lookme</button> <input type="text" id="field">
+	                        	  <li>
+											<button onclick="Num()">lookme</button> <input type="text" id="field">
 									</li>
 	             </div>
  

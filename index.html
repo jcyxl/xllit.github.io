@@ -168,6 +168,79 @@
 		<!--rain-->
         <div id="rain"></div>
 		<!--//rain-->
+        <!--core-->
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo">
+            <h1>Logo</h1>
+        </a>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">xllstudio</a></li>
+                <li><a href="/联系.html">联系我们</a></li>
+                <li><a href="/game/gc.html">小游戏</a>
+                    <ul class="hide">
+                        <li><a href="#">null</a></li>
+                        <li><a href="#">null</a></li>
+                        <li><a href="#">null</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">好东西</a>
+                    <ul class="hide">
+                        <li><a href="#">文件夹1</a></li>
+                        <li><a href="#">文件夹2</a></li>
+                        <li><a href="#">文件夹3</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        
+
+
+
+
+
+    </div>
+</body>
+</html>
+<!--//core-->
+    <!--music-->
+    <div id="app">
+        <audio class="myaudio" src="./static/music.mp3" loop="loop"></audio>
+        <homePage v-if="appIndex===0" @changeAppIndex="changeAppIndex" @playMusic="playMusic" @pauseMusic="pauseMusic" :isPlayMusic="isPlayMusic"></homePage>
+        <scrollPage v-if="appIndex===1" @changeAppIndex="changeAppIndex" @playMusic="playMusic" @pauseMusic="pauseMusic" :isPlayMusic="isPlayMusic"></scrollPage>
+        <createList v-if="appIndex===2" @changeAppIndex="changeAppIndex" @playMusic="playMusic" @pauseMusic="pauseMusic" :isPlayMusic="isPlayMusic"></createList>
+        <create v-if="appIndex===3" @changeAppIndex="changeAppIndex" @playMusic="playMusic" @pauseMusic="pauseMusic" :isPlayMusic="isPlayMusic" :postIndex="postIndex"></create>
+      </div>
+      <div class="music" v-show="isPlayMusic" @click="pauseMusic"></div>
+      <div class="music-off" v-show="!isPlayMusic" @click="playMusic"></div>
+      <script>
+      playMusic (); {
+        const myAuto = document.getElementsByClassName('myaudio')[0]
+        myAuto.play().then(success => {
+          this.isPlayMusic = true
+        }).catch(e => {
+          this.isPlayMusic = false
+        })
+      };
+      pauseMusic () ;{
+        const myAuto = document.getElementsByClassName('myaudio')[0]
+        myAuto.pause()
+        this.isPlayMusic = false
+      }
+    </script>  
+    <!--//music-->
 		
     </body>
 </html>

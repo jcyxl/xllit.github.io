@@ -3,7 +3,6 @@
 <html>
 <head><title>ohh....</title></head>
 <body>
-    <meta http-equiv="Refresh" content="5;url=/core.html">
     
     <style>
         body{
@@ -18,24 +17,44 @@
             color: rgb(69, 0, 133);
             text-align: center;
         }
-        img {
-            margin-left: auto;
-            margin-top: auto;
-        }
     </style>
-    <br>
     <br>
     <br>
         <h2>=稍等，我们正在重定向网站=</h2>
     <br>
-    <div style="text-align:center;"><img src="./sth/img/1.png" style="vertical-align:middle;"/></div>
     
     <!DOCTYPE html>
     <html>
     <head>
         <meta charset="UTF-8">
         <title>Loading Page</title>
-    
+        <script type="text/javascript">
+            // 生成一个 [min, max] 范围内的随机整数
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        
+            // 使用70%得概率执行第一种重定向方式，使用30%的概率执行第二种重定向方式
+            if (getRandomInt(1, 10) <= 7) {
+                function wait() {
+  return new Promise(resolve => setTimeout(resolve, 4000)); // 1000 毫秒 = 1 秒钟
+}
+
+async function test() {
+  await wait();
+}
+                window.location.href = "https://xllit.github.io/core.html";
+            } else {
+                function wait() {
+  return new Promise(resolve => setTimeout(resolve, 10000)); // 10000 毫秒 = 10 秒钟
+}
+
+async function test() {
+  await wait();
+}
+                window.location.href = "https://xllit.github.io/funnyl.html";
+            }
+        </script>
         <style type="text/css">
             body {
                 background-color: #F5F5F5;

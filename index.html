@@ -25,6 +25,53 @@
         <h2>=稍等，我们正在重定向网站=</h2>
     <br>
     <img src="./sth/img/1.png">
-        
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Loading Page</title>
+    
+        <style type="text/css">
+            body {
+                background-color: #F5F5F5;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                color: #777;
+                overflow: hidden; /* 禁止滚动条出现 */
+            }
+            #loading-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); /* 使用transform使块居中 */
+                text-align: center; /* 让文本居中 */
+            }
+            #loading-text {
+                margin-bottom: 40px;
+                font-size: 2em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            #loading-spinner {
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                border: 6px solid #ccc;
+                border-top-color: #F17C67;
+                border-radius: 100%;
+                animation: spin 1.5s ease-in-out infinite; /* 添加旋转动画 */
+            }
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loading-wrapper">
+            <div id="loading-text">LOADING...</div>
+            <div id="loading-spinner"></div>
+        </div>
+    </body>
+    </html>
 </body>
 </html>

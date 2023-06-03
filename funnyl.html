@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head><title>ohh....</title></head>
+<meta http-equiv="refresh" content="5; url=https://www.example.com">
+<body>
+    
+    <style>
+        body{
+            color: rgb(182, 250, 255);
+            
+        }
+        h2{
+            color: rgb(0, 100, 100);
+            text-align: center;
+        }
+        script {
+            color: rgb(69, 0, 133);
+            text-align: center;
+        }
+    </style>
+    <br>
+    <br>
+        <h2>=稍等，我们正在重定向网站=</h2>
+    <br>
+   
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Loading Page</title>
+        <script type="text/javascript">
+            // 生成一个 [min, max] 范围内的随机整数
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        
+            // 使用70%得概率执行第一种重定向方式，使用30%的概率执行第二种重定向方式
+            if (getRandomInt(1, 10) <= 9) {
+                function wait() {
+  return new Promise(resolve => setTimeout(resolve, 4000)); // 1000 毫秒 = 1 秒钟
+}
+
+async function test() {
+  await wait();
+}
+                window.location.href = "https://xllit.github.io/core.html";
+            } else {
+                function wait() {
+  return new Promise(resolve => setTimeout(resolve, 10000)); // 10000 毫秒 = 10 秒钟
+}
+
+async function test() {
+  await wait();
+}
+                window.location.href = "https://xllit.github.io/funnyl.html";
+            }
+        </script>
+        <style type="text/css">
+            body {
+                background-color: #F5F5F5;
+                font-family: "Helvetica Neue", Arial, sans-serif;
+                color: #777;
+                overflow: hidden; /* 禁止滚动条出现 */
+            }
+            #loading-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); /* 使用transform使块居中 */
+                text-align: center; /* 让文本居中 */
+            }
+            #loading-text {
+                margin-bottom: 40px;
+                font-size: 2em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            #loading-spinner {
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                border: 6px solid #ccc;
+                border-top-color: #F17C67;
+                border-radius: 100%;
+                animation: spin 1.5s ease-in-out infinite; /* 添加旋转动画 */
+            }
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="loading-wrapper">
+            <div id="loading-text">LOADING...</div>
+            <div id="loading-spinner"></div>
+        </div>
+    </body>
+    </html>
+</body>
+</html>

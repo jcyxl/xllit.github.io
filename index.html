@@ -51,45 +51,17 @@
         {
         background-color:#ffbea0;
         }
+        body {
+            /*字体*/
+        font-family: "FangSong", sans-serif;
+        }   
         </style>
         </head>
         <body>
             <script>
-                //锚点//////////////////////////////////////////
                 
-                $(function () {
-    
-    //锚点的过渡效果
-    $(document).on('click', 'a[href^="#"]', function () {
-        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-            var $target = $(this.hash);
-            $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');//获取到点击对应id的元素
-            if ($target.length) {
-                var targetOffset = $target.offset().top;
-                $('html,body').animate({   //滑动效果主要用到jq的animate函数
-                    scrollTop: targetOffset
-                }, 500);
-                return false;
-            }
-        }
-    });
+                
 
-
-    //滚动条滑动到相应位置导航栏显示高亮
-    function checkscroll() {
-        wint = $(window).scrollTop(); //屏幕位置
-        var NodePos = [$('#introduction').offset().top, $('#culture').offset().top];//提前获取好元素位
-
-        if (wint < NodePos[1]) {
-            $('.about-tab a').removeClass('active');
-            $('.about-tab a:nth-child(1)').addClass('active');
-        }
-        else if (NodePos[1] <= wint && wint < NodePos[2] - 0.5) {
-            $('.about-tab a').removeClass('active');
-            $('.about-tab a:nth-child(2)').addClass('active');
-        } 
-    }
-});
 
             </script>
         <main>
@@ -104,86 +76,6 @@
             <li><a href="#about">Q&A</a></li>
             </ul>
         </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <div id="about">
                 <h2>test</h2>
             </div>

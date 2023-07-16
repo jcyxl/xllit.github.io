@@ -22,6 +22,7 @@
   background-color: #f1f1f1;
   padding: 10px;
   text-align: center;
+  z-index: 2;
 }
         ul
         {
@@ -29,10 +30,12 @@
         margin:0;
         padding:0;
         overflow:hidden;
+        z-index: 2;
         }
         li
         {
         float:left;
+        z-index: 2;
         }
         a:link,a:visited
         {
@@ -45,22 +48,25 @@
         padding:30px;
         text-decoration:none;
         text-transform:uppercase;
+        z-index: 2;
         }
         a:hover,a:active
         {
         background-color:#ffbea0;
+        z-index: 2;
         }
         body {
             /*字体*/
         font-family: "FangSong", sans-serif;
+        
         }   
 
         /*bodycolor*/
         body{
-        z-index: -1;
+        z-index: 1;
         }
         svg {
-            z-index: -1;
+            z-index: 1;
         }
         </style>
         </head>

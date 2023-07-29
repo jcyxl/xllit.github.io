@@ -71,8 +71,32 @@
                         }
                       </style>
                       <script>
-                        function copyText() {
+                        function copyText1() {
                           var text = document.getElementById("1").innerText;
+                  
+                          var tempTextarea = document.createElement("textarea");
+                          tempTextarea.value = text;
+                          document.body.appendChild(tempTextarea);
+                  
+                          tempTextarea.select();
+                          document.execCommand("copy");
+                  
+                          document.body.removeChild(tempTextarea);
+                  
+                          var notification = document.getElementById("notification");
+                          notification.style.display = "block";
+                          setTimeout(function () {
+                            notification.style.opacity = 1;
+                          }, 100);
+                          setTimeout(function () {
+                            notification.style.opacity = 0;
+                            setTimeout(function () {
+                              notification.style.display = "none";
+                            }, 500);
+                          }, 3000);
+                        }
+                        function copyText2() {
+                          var text = document.getElementById("2").innerText;
                   
                           var tempTextarea = document.createElement("textarea");
                           tempTextarea.value = text;
@@ -98,7 +122,7 @@
                       </script>
                     <p id="1">欢迎使用AI机器人。</p>
                     <button onclick="copyText()">复制文本</button>
-                    <p id="1">欢迎使用A</p>
+                    <p id="2">欢迎使用A</p>
                     <button onclick="copyText()">复制文本</button>
                     <div id="notification">Done</div>
 

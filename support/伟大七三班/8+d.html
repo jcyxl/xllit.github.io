@@ -55,7 +55,22 @@
         background-color: rgb(214, 255, 255);
         }
             </style>
-            
+                <script>
+                    function copyText() {
+                      var text = document.getElementById("1").innerText;
+              
+                      var tempTextarea = document.createElement("textarea");
+                      tempTextarea.value = text;
+                      document.body.appendChild(tempTextarea);
+              
+                      tempTextarea.select();
+                      document.execCommand("copy");
+              
+                      document.body.removeChild(tempTextarea);
+                    }
+                  </script>
+                    <p id="myText">欢迎使用AI机器人。</p>
+                    <button onclick="copyText()">复制文本</button>
             <div class=".header">
                 <ul>
                     <li><a href="../../index.html">小绿龙工作室</a></li>

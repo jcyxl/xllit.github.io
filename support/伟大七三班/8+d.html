@@ -55,20 +55,47 @@
         background-color: rgb(214, 255, 255);
         }
             </style>
-                <script>
-                    function copyText() {
-                      var text = document.getElementById("1").innerText;
-              
-                      var tempTextarea = document.createElement("textarea");
-                      tempTextarea.value = text;
-                      document.body.appendChild(tempTextarea);
-              
-                      tempTextarea.select();
-                      document.execCommand("copy");
-              
-                      document.body.removeChild(tempTextarea);
-                    }
-                  </script>
+                
+                    <style>
+                        #notification {
+                          display: none;
+                          position: fixed;
+                          top: 50%;
+                          left: 50%;
+                          transform: translate(-50%, -50%);
+                          padding: 10px 20px;
+                          background-color: #ccc;
+                          border-radius: 5px;
+                          opacity: 0;
+                          transition: opacity 0.5s;
+                        }
+                      </style>
+                      <script>
+                        function copyText() {
+                          var text = document.getElementById("1").innerText;
+                  
+                          var tempTextarea = document.createElement("textarea");
+                          tempTextarea.value = text;
+                          document.body.appendChild(tempTextarea);
+                  
+                          tempTextarea.select();
+                          document.execCommand("copy");
+                  
+                          document.body.removeChild(tempTextarea);
+                  
+                          var notification = document.getElementById("notification");
+                          notification.style.display = "block";
+                          setTimeout(function () {
+                            notification.style.opacity = 1;
+                          }, 100);
+                          setTimeout(function () {
+                            notification.style.opacity = 0;
+                            setTimeout(function () {
+                              notification.style.display = "none";
+                            }, 500);
+                          }, 3000);
+                        }
+                      </script>
                     <p id="1">欢迎使用AI机器人。</p>
                     <button onclick="copyText()">复制文本</button>
             <div class=".header">

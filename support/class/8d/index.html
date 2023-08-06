@@ -65,7 +65,29 @@
 
                     </ul>
                 </div>
-            <h2>a</h2>
+              <br>
+            <h2>语文电子书</h2>
+            <button onclick="copyToClipboard('Hello, World!')">复制文本</button>
+            <button onclick="copyToClipboard('Hello, W')">复制文本2</button>
+
+            <script>
+                function copyToClipboard(text) {
+                    // 创建一个临时textarea元素
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+        
+                    // 选中临时textarea中的文本
+                    textarea.select();
+                    textarea.setSelectionRange(0, textarea.value.length);
+        
+                    // 将文本复制到剪贴板
+                    document.execCommand('copy');
+        
+                    // 移除临时textarea元素
+                    document.body.removeChild(textarea);
+                }
+            </script>
 
 
 

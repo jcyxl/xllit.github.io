@@ -93,8 +93,8 @@
                 </div>
               <br>
             <h2>语文电子书</h2>
-            <button onclick="copyToClipboard('Hello, World!')"class=button>复制文本</button>
-            <button onclick="copyToClipboard('Hello, W')"class="button">复制文本2</button>
+            <button onclick="copyToClipboard('Hello, World!')"class=button onclick="showDone()">复制文本</button>
+            <button onclick="copyToClipboard('Hello, W')"class="button" onclick="showDone()">复制文本2</button>
 
             <script>
               //复制文本
@@ -113,6 +113,11 @@
         
                     // 移除临时textarea元素
                     document.body.removeChild(textarea);
+                    //print done
+                    function showDone() {
+                      var button = document.querySelector('.my-button');
+                      button.innerHTML = 'Done!';
+                    }
                 }
             </script>
 

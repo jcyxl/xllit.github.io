@@ -71,7 +71,16 @@
           color: #00627a;
           font-size: 20px;
         }
-  
+            #closeButton {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 10px;
+          background-color: #fff;
+          color: #000;
+          cursor: pointer;
+          z-index: 9999;
+        }
         </style>
 
 
@@ -130,8 +139,19 @@
 
 
 
-
-
+        <div id="closeButton">关闭雪花</div>
+        <script>
+          var closeButton = document.getElementById("closeButton");
+          var snowflakesInterval;
+        
+          closeButton.addEventListener("click", function() {
+            clearInterval(snowflakesInterval);
+          });
+          
+          // 其他代码...
+          
+          snowflakesInterval = setInterval(createSnowflake, 200);
+        </script>
         <script>
           function createSnowflake() {
             var snowflake = document.createElement("span");

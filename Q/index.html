@@ -53,26 +53,28 @@
         }
         
         body {
-          overflow: hidden;
-          margin: 0;
-          padding: 0;
-        }
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      
+    }
     
-        .snowflake {
-          position: absolute;
-          color: #00627a;
-          font-size: 20px;
-        }
-            #closeButton {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          padding: 10px;
-          background-color: #fff;
-          color: #000;
-          cursor: pointer;
-          z-index: 9999;
-        }
+    .snowflake {
+      position: absolute;
+      color: #006647;
+      font-size: 20px;
+    }
+    
+    #closeButton {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px;
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+      z-index: 9999;
+    }
         </style>
 
 
@@ -155,81 +157,40 @@
 
 
 
-        <div id="closeButton">关闭雪花</div>
-        <script>
-          closeButton.addEventListener("click", function() {
-  clearInterval(snowflakesInterval);
-});
 
+        <div id="closeButton">关闭雪花</div>
+  
+        <script>
           var closeButton = document.getElementById("closeButton");
           var snowflakesInterval;
-        
+      
           closeButton.addEventListener("click", function() {
             clearInterval(snowflakesInterval);
+            var snowflakes = document.querySelectorAll(".snowflake");
+            snowflakes.forEach(snowflake => {
+              snowflake.style.display = "none";
+            });
           });
           
-          // 其他代码...
-          
-          snowflakesInterval = setInterval(createSnowflake, 200);
-        </script>
-        <script>
           function createSnowflake() {
             var snowflake = document.createElement("span");
-            snowflake.className = "snowflake";
-            snowflake.innerHTML = "*";
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "&#10052;"; // 雪花的图案
             
-            var x = Math.random() * window.innerWidth;
-            var y = -10;
-            var speed = 1 + Math.random() * 3;
-            
-            snowflake.style.left = x + "px";
-            snowflake.style.top = y + "px";
-            
+            // 控制雪花的初始位置
+            var initialTop = Math.random() * window.innerHeight;
+            var initialLeft = Math.random() * window.innerWidth;
+            snowflake.style.top = initialTop + "px";
+            snowflake.style.left = initialLeft + "px";
+      
+            // 控制雪花的左右移动幅度
+            var leftOffset = Math.random() * 10 - 5; // 随机生成一个 -5 到 5 的数值
+            snowflake.style.left = (initialLeft + leftOffset) + "px";
+      
             document.body.appendChild(snowflake);
-            
-            var isWindy = Math.random() < 0.2; // 20%的概率出现风
-            
-            if (isWindy) {
-              var windSpeed = 1 + Math.random() * 5; // 随机风速
-              var windDirection = Math.random() < 0.5 ? -1 : 1; // 随机风向
-              
-              moveWithWind();
-            } else {
-              fall();
-            }
-            
-            function moveWithWind() {
-              x += windSpeed * windDirection;
-              y += speed;
-              
-              snowflake.style.left = x + "px";
-              snowflake.style.top = y + "px";
-              
-              if (y > window.innerHeight || x < -20 || x > window.innerWidth + 20) {
-                snowflake.remove();
-              } else {
-                requestAnimationFrame(moveWithWind);
-              }
-            }
-            
-            function fall() {
-              y += speed;
-              snowflake.style.top = y + "px";
-              
-              if (y > window.innerHeight) {
-                snowflake.remove();
-              } else {
-                requestAnimationFrame(fall);
-              }
-            }
-            
-            var duration = Math.random() * 5 + 2; // 随机持续时间
-            setTimeout(function() {
-              snowflake.remove();
-            }, duration * 1000); // 在持续时间结束后移除雪花元素
           }
           
-          setInterval(createSnowflake, 200);
+          snowflakesInterval = setInterval(createSnowflake, 200);
         </script>
         <!--backg main-->
         <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 690" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>

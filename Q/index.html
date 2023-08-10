@@ -134,6 +134,10 @@
 
         <div id="closeButton">关闭雪花</div>
         <script>
+          closeButton.addEventListener("click", function() {
+  clearInterval(snowflakesInterval);
+});
+
           var closeButton = document.getElementById("closeButton");
           var snowflakesInterval;
         

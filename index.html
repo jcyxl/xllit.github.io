@@ -368,18 +368,58 @@
                   #musicButton:not(.playing) #playIcon {
                     display: inline;
                   }
+              
+                  #playlistContainer {
+                    position: fixed;
+                    bottom: 100px;
+                    right: 20px;
+                    width: 200px;
+                    background-color: #fff;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                    padding: 10px;
+                    display: none; /* 初始隐藏播放列表 */
+                    z-index: 9998; /* 设置较高的 z-index 值，确保在按钮下方显示 */
+                  }
+              
+                  #playlistContainer.show {
+                    display: block; /* 显示播放列表 */
+                  }
+              
+                  #playlistContainer ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                  }
+              
+                  #playlistContainer li {
+                    margin-bottom: 5px;
+                  }
+              
+                  #playlistContainer li.current {
+                    color: blue; /* 当前播放歌曲的样式 */
+                  }
                 </style>
-              
-              
                 <button id="musicButton" onclick="toggleMusic()">
                   <span id="playIcon">&#9658;</span>
                   <span id="pauseIcon">&#10074;&#10074;</span>
                 </button>
-                <audio id="audioPlayer" src="data/main.mp3"></audio>
+              
+                <div id="playlistContainer">
+                  <ul id="playlist">
+                    <li class="current" data-src="./data/main.mp3">main</li>
+                    <li data-src="./data/in.mp3">in the shadow of the sun</li>
+                    <li data-src="./data/m.mp3">歌曲3</li>
+                  </ul>
+                </div>
+              
+                <audio id="audioPlayer" src="./data/main.mp3" onended="playNextSong()"></audio>
               
                 <script>
                   var audioPlayer = document.getElementById('audioPlayer');
                   var musicButton = document.getElementById('musicButton');
+                  var playlistContainer = document.getElementById('playlistContainer');
+                  var playlist = document.getElementById('playlist');
+                  var songs = playlist.getElementsByTagName('li');
               
                   function toggleMusic() {
                     if (audioPlayer.paused) {
@@ -389,6 +429,53 @@
                       audioPlayer.pause();
                       musicButton.classList.remove('playing');
                     }
+                  }
+              
+                  function playNextSong() {
+                    var currentSongIndex = getIndexOfCurrentSong();
+                    var nextSongIndex = (currentSongIndex + 1) % songs.length;
+                    var nextSong = songs[nextSongIndex];
+              
+                    audioPlayer.src = nextSong.getAttribute('data-src'); // 切换到下一首歌曲
+                    audioPlayer.play();
+              
+                    // 将当前播放歌曲的样式设置为空
+                    songs[currentSongIndex].classList.remove('current');
+                    // 将下一首歌曲设置为当前播放歌曲的样式
+                    nextSong.classList.add('current');
+                  }
+              
+                  function getIndexOfCurrentSong() {
+                    var currentSongIndex = -1;
+                    for (var i = 0; i < songs.length; i++) {
+                      if (songs[i].classList.contains('current')) {
+                        currentSongIndex = i;
+                        break;
+                      }
+                    }
+                    return currentSongIndex;
+                  }
+              
+                  // 点击按钮时显示/隐藏播放列表
+                  musicButton.addEventListener('click', function() {
+                    playlistContainer.classList.toggle('show');
+                  });
+              
+                  // 点击播放列表中的歌曲时切换到对应的歌曲进行播放
+                  for (var i = 0; i < songs.length; i++) {
+                    songs[i].addEventListener('click', function() {
+                      var songIndex = Array.prototype.indexOf.call(songs, this);
+                      var selectedSong = songs[songIndex];
+              
+                      audioPlayer.src = selectedSong.getAttribute('data-src');
+                      audioPlayer.play();
+              
+                      // 切换当前播放歌曲的样式
+                      for (var j = 0; j < songs.length; j++) {
+                        songs[j].classList.remove('current');
+                      }
+                      selectedSong.classList.add('current');
+                    });
                   }
                 </script>
 </body><!--////////////////////////////////////////-->

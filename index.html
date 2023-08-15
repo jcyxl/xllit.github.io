@@ -374,7 +374,7 @@
                     bottom: 100px;
                     right: 20px;
                     width: 200px;
-                    background-color: #fff;
+                    background-color: #c7ffff;
                     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
                     padding: 10px;
                     display: none; /* 初始隐藏播放列表 */
@@ -396,8 +396,16 @@
                   }
               
                   #playlistContainer li.current {
-                    color: blue; /* 当前播放歌曲的样式 */
+                    color: rgb(0, 192, 160); /* 当前播放歌曲的样式 */
                   }
+                  .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 50px; /* 设置宽度 */
+      max-height: 50px; /* 设置高度 */
+    }
                 </style>
                 <button id="musicButton" onclick="toggleMusic()">
                   <span id="playIcon">&#9658;</span>
@@ -478,5 +486,27 @@
                     });
                   }
                 </script>
+                  <a href="#top" class="back-to-top"><p style="text-align: center;">点击我回到顶部</p></a></div>
+  
+                  <!-- JavaScript 代码 -->
+                  <script>
+                    var imageLink = document.querySelector("a.back-to-top");
+                    
+                    imageLink.addEventListener("click", function(event) {
+                      event.preventDefault();
+                      scrollToTop(500);
+                    });
+                    
+                    function scrollToTop(scrollDuration) {
+                      var scrollStep = -window.scrollY / (scrollDuration / 15);
+                      var scrollInterval = setInterval(function() {
+                        if (window.scrollY !== 0) {
+                          window.scrollBy(0, scrollStep);
+                        } else {
+                          clearInterval(scrollInterval);
+                        }
+                      }, 15);
+                    }
+                  </script>
 </body><!--////////////////////////////////////////-->
 </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表白</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .dots {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: moveDots 3s linear 1s forwards, fadeInText 4s linear 4s forwards;
+        }
+
+        @keyframes moveDots {
+            to {
+                transform: translate(0, -50vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .message {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 3s linear 8s forwards, fadeOutText 3s linear 11s forwards;
+        }
+
+        @keyframes fadeOutText {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInText 3s linear 14s forwards;
+        }
+
+        .button {
+            background-color: #dcdcdc;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="dots"></div>
+    <div class="message">小江，我爱你两年半了</div>
+    <div class="buttons">
+        <button class="button" onclick="showLovePage()">愿意</button>
+        <button class="button" onclick="hideDislikeButton()">不愿意</button>
+    </div>
+
+    <script>
+        function hideDislikeButton() {
+            document.querySelector(".button").style.display = "none";
+        }
+
+        function showLovePage() {
+            window.location.href = "https://example.com/love-page"; // 请替换成实际的网址
+        }
+    </script>
+</body>
+</html>

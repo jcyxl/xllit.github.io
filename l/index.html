@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>表白</title>
+    <title>Love Confession</title>
     <style>
         body {
             background-color: #f0f0f0;
@@ -16,13 +16,13 @@
             overflow: hidden;
         }
         
-        .dots {
+        .dot {
             position: absolute;
             width: 10px;
             height: 10px;
             background-color: #ffffff;
             border-radius: 50%;
-            animation: moveDots 3s linear 1s forwards, fadeInText 4s linear 4s forwards;
+            animation: moveDots 3s linear 1s forwards;
         }
 
         @keyframes moveDots {
@@ -30,6 +30,14 @@
                 transform: translate(0, -50vh);
                 opacity: 0;
             }
+        }
+
+        .message {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 1s linear 4s forwards, fadeOutText 1s linear 7s forwards;
         }
 
         @keyframes fadeInText {
@@ -41,14 +49,6 @@
             }
         }
 
-        .message {
-            font-size: 24px;
-            text-align: center;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fadeInText 3s linear 8s forwards, fadeOutText 3s linear 11s forwards;
-        }
-
         @keyframes fadeOutText {
             0% {
                 opacity: 1;
@@ -58,12 +58,19 @@
             }
         }
 
+        .question {
+            font-size: 20px;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInText 1s linear 8s forwards;
+        }
+
         .buttons {
             margin-top: 20px;
             display: flex;
             justify-content: center;
             opacity: 0;
-            animation: fadeInText 3s linear 14s forwards;
+            animation: fadeInText 1s linear 8s forwards;
         }
 
         .button {
@@ -82,8 +89,15 @@
     </style>
 </head>
 <body>
-    <div class="dots"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <!-- Repeat the dot element as needed -->
+
     <div class="message">小江，我爱你两年半了</div>
+
+    <div class="question">你愿意做我女朋友吗？</div>
+
     <div class="buttons">
         <button class="button" onclick="showLovePage()">愿意</button>
         <button class="button" onclick="hideDislikeButton()">不愿意</button>
@@ -95,7 +109,7 @@
         }
 
         function showLovePage() {
-            window.location.href = "https://example.com/love-page"; // 请替换成实际的网址
+            window.location.href = "https://example.com/love-page"; // 替换为实际的网页链接
         }
     </script>
 </body>
